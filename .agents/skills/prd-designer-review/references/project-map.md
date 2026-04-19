@@ -1,37 +1,34 @@
 # Project Map
 
-用于在需求预审时识别当前需求所属的项目、业务线与产品类型，帮助 AI 判断需求的背景范围和设计上下文。
+用于在需求预审时识别当前需求所属的项目、业务线与产品类型。
+
+AI 在接到需求后，应先比对本文件确认属于哪个项目，再加载 `domain-conventions.md`、`component-guidelines.md`、`design-tokens.md` 中对应的项目节，作为评审依据。
 
 ---
 
-## 使用说明
+## 已收录项目
 
-在执行需求预审时，AI 应查阅本文件，了解：
-- 当前需求属于哪个产品线
-- 该产品线的目标用户和核心业务场景
-- 需求评审时应重点关注的业务特性
-
----
-
-## 产品线信息
-
-> 请在此填写你的项目/产品线信息，以下为示例结构：
-
-| 产品线 | 目标用户 | 核心业务场景 | 备注 |
-|---|---|---|---|
-| （示例）账户管理后台 | 内部运营人员 | 用户账户查询、风控处理 | ToB 内部系统 |
-| （示例）理财 App | C 端个人用户 | 基金购买、持仓查看 | ToC 移动端 |
+| 项目标识 | 产品名称 | 目标用户 | 产品类型 | 对应规范节 |
+|---|---|---|---|---|
+| `rwa-official-website` | Finloop RWA 官网 | 机构投资者（品牌触达） | 营销官网（PC + Mobile） | domain-conventions § 二、component-guidelines § 一、design-tokens § 一 |
+| `fai` | FAI — AI Agent Web | 企业内部 / 团队用户 | AI 对话平台（PC Web） | domain-conventions § 三、component-guidelines § 二、design-tokens § 二 |
+| `finloop-website-web` | Finloop 官网 | 金融机构 B2B 客户 | 企业品牌官网（PC + Mobile） | domain-conventions § 四、component-guidelines § 三、design-tokens § 三 |
+| `webportal` | TaaS 平台 | 机构投资者 / 分销商 / 员工 | ToB 金融 SaaS（PC Web） | domain-conventions § 五、component-guidelines § 四、design-tokens § 四 |
+| `enterprise-web` | Finloop Enterprise Web（EPS / MFO） | 机构投资者 / 财富管理从业者 | ToB 金融 SaaS（PC Web，Monorepo） | domain-conventions § 六、component-guidelines § 五、design-tokens § 五 |
 
 ---
 
-## 当前项目上下文
+## 项目识别方式
 
-> 填写当前正在使用本 skill 的项目信息：
+AI 可通过以下线索判断需求所属项目：
 
-- **项目名称**：
-- **业务线**：
-- **产品类型**：（ToB 管理后台 / ToC App / 小程序 / 混合型）
-- **主要用户角色**：
-- **当前迭代阶段**：（新功能 / 优化 / 重构）
-- **关联已有系统**：
-- **特殊约束**（如监管要求、合规限制等）：
+- 用户在触发 skill 时明确说明项目名称
+- 需求文档中出现项目关键词（如"TaaS""FAI""EPS""MFO""RWA 官网"等）
+- 需求文档中出现的路由、组件名、业务模块名（对照上表各规范节中的模块清单）
+- 若无法判断，在评审结果开头注明"未能确认所属项目，以下评审基于通用 ToB 惯例"
+
+---
+
+## 补充其他项目
+
+> 若有新项目接入，在上表中新增一行，并在 `domain-conventions.md`、`component-guidelines.md`、`design-tokens.md` 中添加对应项目节即可。
