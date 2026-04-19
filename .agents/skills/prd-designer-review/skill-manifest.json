@@ -1,0 +1,24 @@
+{
+  "id": "prd-designer-review",
+  "name": "PRD 设计预审",
+  "version": "1.0.0",
+  "description": "在设计师接收产品经理需求文档后、正式设计和线下需求评审前，对需求进行一次以用户为中心的设计预审。识别业务流程、用户体验、信息架构、交互逻辑和设计落地层面的矛盾、缺失与风险，输出按优先级整理的问题清单。",
+  "tags": [
+    "design",
+    "prd",
+    "review",
+    "ux",
+    "product"
+  ],
+  "files": [
+    "SKILL.md",
+    "assets/output-template.md",
+    "references/review-dimensions.md",
+    "references/project-map.md",
+    "references/design-review-checklist.md",
+    "references/interaction-patterns.md",
+    "references/domain-conventions.md",
+    "references/component-guidelines.md",
+    "references/design-tokens.md"
+  ]
+}

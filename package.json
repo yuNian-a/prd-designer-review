@@ -1,0 +1,32 @@
+{
+  "name": "prd-designer-review",
+  "version": "1.1.3",
+  "description": "PRD 设计预审 Skill - 在需求评审前从用户与设计师视角预审 PRD，识别问题，提升评审效率",
+  "main": "index.js",
+  "bin": {
+    "prd-designer-review": "./bin/prd-designer-review.js"
+  },
+  "scripts": {
+    "install-skill": "node bin/prd-designer-review.js",
+    "publish": "npm publish"
+  },
+  "keywords": [
+    "prd",
+    "design-review",
+    "ux",
+    "skill",
+    "agent",
+    "cursor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "bin",
+    "lib",
+    ".agents"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {}
+}
