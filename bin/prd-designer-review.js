@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { installSkill, listSkills } = require('../lib/install');
+const { updateSkill } = require('../lib/updater');
 
 const args = process.argv.slice(2);
 
@@ -15,12 +16,14 @@ async function main() {
 
 命令:
   list                    列出所有可用的 skills
-  install <skill-id>       安装指定的 skill
+  install <skill-id>      安装指定的 skill
+  update <skill-id>       更新指定的 skill（保留本地配置文件）
   help                    显示帮助信息
 
 示例:
   npx prd-designer-review list
   npx prd-designer-review install prd-designer-review
+  npx prd-designer-review update prd-designer-review
       `);
       return;
     }
@@ -35,8 +38,14 @@ async function main() {
         console.log('\n💡 使用 "npx prd-designer-review list" 查看可用的 skills');
         process.exit(1);
       }
-      const skillId = args[1];
-      await installSkill(skillId);
+      await installSkill(args[1]);
+    } else if (command === 'update') {
+      if (args.length < 2) {
+        console.error('❌ 错误: 请指定要更新的 skill ID');
+        console.log('\n💡 使用 "npx prd-designer-review list" 查看可用的 skills');
+        process.exit(1);
+      }
+      await updateSkill(args[1]);
     } else {
       console.error(`❌ 未知命令: ${command}`);
       console.log('\n💡 使用 "npx prd-designer-review help" 查看帮助信息');
@@ -49,4 +58,3 @@ async function main() {
 }
 
 main();
-

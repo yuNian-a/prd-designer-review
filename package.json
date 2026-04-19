@@ -7,8 +7,9 @@
     "prd-designer-review": "./bin/prd-designer-review.js"
   },
   "scripts": {
-    "install-skill": "node bin/prd-designer-review.js",
-    "publish": "npm publish"
+    "sync": "node scripts/sync.js",
+    "prepublishOnly": "npm run sync",
+    "release": "npm run sync && npm publish --access public"
   },
   "keywords": [
     "prd",
